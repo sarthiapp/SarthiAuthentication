@@ -143,7 +143,6 @@ public class verifyo_otp extends AppCompatActivity {
             @Override
             public void onSuccess(AuthResult authResult) {
                 Toast.makeText(verifyo_otp.this, "Account Created", Toast.LENGTH_SHORT).show();
-
                 // send to dashboard.
             }
         });

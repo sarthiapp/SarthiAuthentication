@@ -6,21 +6,16 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
 
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
-import com.google.firebase.auth.FirebaseAuth;
 
 public class login_signup extends AppCompatActivity {
     TabLayout tabs;
     TabItem loginTabItem,signupTabItem;
     ViewPager pager;
     PagerAdapter adapter;
+    String type;
 
 
     @Override
@@ -31,6 +26,8 @@ public class login_signup extends AppCompatActivity {
         loginTabItem = findViewById(R.id.LoginTab);
         signupTabItem = findViewById(R.id.SignUpTab);
         pager = findViewById(R.id.pager);
+        Intent intent=getIntent();
+        type=intent.getStringExtra("type");
 
         adapter = new PagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,tabs.getTabCount());
         pager.setAdapter(adapter);
@@ -55,4 +52,5 @@ public class login_signup extends AppCompatActivity {
         pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabs));
 
     }
+
 }

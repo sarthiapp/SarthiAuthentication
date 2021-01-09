@@ -48,27 +48,15 @@
         android:paddingRight="15dp"
         android:textSize="22sp" />
 
-
-    -
-
-    <LinearLayout
+    <EditText
+        android:id="@+id/user_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingRight="15dp">
-
-        <EditText
-            android:id="@+id/user_phone"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_weight="3"
-            android:hint="Phone number"
-            android:paddingLeft="15dp"
-            android:paddingTop="20dp"
-            android:textSize="22sp" />
-
-    </LinearLayout>
+        android:hint="Phone number"
+        android:paddingLeft="15dp"
+        android:paddingTop="20dp"
+        android:paddingRight="15dp"
+        android:textSize="22sp" />
 
     <Button
         android:id="@+id/btnSaveUser"
@@ -78,6 +66,10 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/purple_500"
+        android:textStyle="bold"
+        android:textSize="18sp"
         android:text="Save" />
 
 </LinearLayout>
