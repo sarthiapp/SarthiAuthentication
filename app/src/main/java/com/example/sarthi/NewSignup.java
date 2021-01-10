@@ -1,17 +1,13 @@
 package com.example.sarthi;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -31,14 +27,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.Executor;
+import java.util.Objects;
 
-
-public class signup extends Fragment {
+public class NewSignup extends AppCompatActivity {
     public static final String TAG = "TAG";
     private static final int RC_SIGN_IN =123 ;
     EditText personEmailAddress,personPass,personConfPass;
@@ -48,42 +40,53 @@ public class signup extends Fragment {
     GoogleSignInClient mGoogleSignInClient;
     String type;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View v=inflater.inflate(R.layout.fragment_signup, container, false);
-        personEmailAddress = v.findViewById(R.id.editTextTextPersonEmail2);
-        personPass = v.findViewById(R.id.editTextTextPassword2);
-        personConfPass = v.findViewById(R.id.editTextRetypePassword2);
-        signUpButton = v.findViewById(R.id.button2);
-        btnGoogleSignIn=v.findViewById(R.id.btnGoogleSignIn);
-        fAuth = FirebaseAuth.getInstance();
 
-        if(getActivity() instanceof login_signup){
-           type = ((login_signup)getActivity()).type;
-            Toast.makeText(getContext(), type, Toast.LENGTH_SHORT).show();
-        }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_new_signup);
+        personEmailAddress = findViewById(R.id.editTextTextPersonEmail2);
+        personPass = findViewById(R.id.editTextTextPassword2);
+        personConfPass = findViewById(R.id.editTextRetypePassword2);
+        signUpButton = findViewById(R.id.button2);
+        btnGoogleSignIn=findViewById(R.id.btnGoogleSignIn);
+        fAuth = FirebaseAuth.getInstance();
+        Intent intent=getIntent();
+        type=intent.getStringExtra("type");
+
 
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (checkValidations()) {
-                    fAuth.createUserWithEmailAndPassword(personEmailAddress.getText().toString(),personPass.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                        @Override
-                        public void onSuccess(AuthResult authResult) {
-                            Toast.makeText(getActivity()," Account Is Created",Toast.LENGTH_SHORT).show();
-                            FirebaseUser user =fAuth.getCurrentUser();
-                            nextActivity();
+                if (checkValidations()){
 
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
+                    fAuth.createUserWithEmailAndPassword(personEmailAddress.getText().toString(),personPass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(getActivity(),"Error" + e.getMessage(),Toast.LENGTH_SHORT).show();
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+
+                            if (task.isSuccessful()) {
+
+                                fAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()) {
+                                            Toast.makeText(NewSignup.this, "Registration successful.Please check your email for verification", Toast.LENGTH_SHORT).show();
+                                            nextActivity();
+                                        }
+                                        else {
+                                            Toast.makeText(NewSignup.this, ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+
+                                    }
+                                });
+
+
+                            } else {
+                                Toast.makeText(NewSignup.this, ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+
                         }
                     });
-
                 }
             }
         });
@@ -91,7 +94,7 @@ public class signup extends Fragment {
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
-        mGoogleSignInClient = GoogleSignIn.getClient( (login_signup)getActivity(),gso);
+        mGoogleSignInClient = GoogleSignIn.getClient( this,gso);
 
         btnGoogleSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,10 +103,6 @@ public class signup extends Fragment {
                 startActivityForResult(signInIntent, RC_SIGN_IN);
             }
         });
-
-
-
-        return v;
     }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -120,7 +119,7 @@ public class signup extends Fragment {
             } catch (Exception e) {
                 // Google Sign In failed, update UI appropriately
                 // ...
-                Toast.makeText(getContext(), "could not sign in", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "could not sign in", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -148,17 +147,17 @@ public class signup extends Fragment {
         */
         switch (type) {
             case "user": {
-                Intent intent1 = new Intent(getActivity(), SignUpUser.class);
+                Intent intent1 = new Intent(this, SignUpUser.class);
                 startActivity(intent1);
                 break;
             }
             case "driver": {
-                Intent intent1 = new Intent(getActivity(), SignUpDriver.class);
+                Intent intent1 = new Intent(this, SignUpDriver.class);
                 startActivity(intent1);
                 break;
             }
             case "attendant": {
-                Intent intent1 = new Intent(getActivity(), SignUpAttendant.class);
+                Intent intent1 = new Intent(this, SignUpAttendant.class);
                 startActivity(intent1);
                 break;
             }
@@ -169,15 +168,16 @@ public class signup extends Fragment {
 
     private boolean checkValidations() {
         if(TextUtils.isEmpty(personEmailAddress.getText().toString())){
-            Toast.makeText(getContext(), "Please Enter Your Email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please Enter Your Email", Toast.LENGTH_SHORT).show();
             return false;
         } else if(TextUtils.isEmpty(personPass.getText().toString())){
-            Toast.makeText(getContext(), "Create Your Password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Create Your Password", Toast.LENGTH_SHORT).show();
             return false;
         } else if(TextUtils.isEmpty(personConfPass.getText().toString())){
-            Toast.makeText(getContext(), "Create Your Password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Create Your Password", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
     }
 }
+

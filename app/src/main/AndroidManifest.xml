@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sarthi">
-        <activity android:name=".Attendant_Home"></activity>
+        <activity android:name=".NewSignup"></activity>
+        <activity android:name=".Attendant_Home" />
         <activity android:name=".Driver_Home" />
         <activity android:name=".User_Home" />
         <activity android:name=".verifyo_otp" />

@@ -15,7 +15,7 @@ public class login_signup extends AppCompatActivity {
     TabItem loginTabItem,signupTabItem;
     ViewPager pager;
     PagerAdapter adapter;
-    String type;
+    public String type;
 
 
     @Override
@@ -29,7 +29,7 @@ public class login_signup extends AppCompatActivity {
         Intent intent=getIntent();
         type=intent.getStringExtra("type");
 
-        adapter = new PagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,tabs.getTabCount());
+        adapter = new PagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,tabs.getTabCount(), type);
         pager.setAdapter(adapter);
 
         tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
