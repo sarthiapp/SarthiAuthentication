@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 public class PagerAdapter extends FragmentPagerAdapter {
     private int TabsNumber;
-    public PagerAdapter(@NonNull FragmentManager fm, int behavior, int TabsNumber, String type) {
+    public PagerAdapter(@NonNull FragmentManager fm, int behavior, int TabsNumber) {
         super(fm, behavior);
         this.TabsNumber= TabsNumber;
     }

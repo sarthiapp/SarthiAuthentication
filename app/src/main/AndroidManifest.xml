@@ -12,7 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sarthi">
-        <activity android:name=".NewSignup"></activity>
+        <activity android:name=".NewLogin">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".NewSignup"/>
         <activity android:name=".Attendant_Home" />
         <activity android:name=".Driver_Home" />
         <activity android:name=".User_Home" />
@@ -22,11 +29,6 @@
         <activity android:name=".SignUpUser" />
         <activity android:name=".login_signup" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

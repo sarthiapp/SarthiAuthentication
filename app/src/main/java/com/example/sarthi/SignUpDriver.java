@@ -49,7 +49,7 @@ public class SignUpDriver extends AppCompatActivity {
                 db.collection("data").document(driver.getUid()).set(drivers).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Intent intent=new Intent(SignUpDriver.this,verifyo_otp.class);
+                        Intent intent=new Intent(SignUpDriver.this,NewLogin.class);
                         intent.putExtra("phone",driver_phone.getText().toString());
                         startActivity(intent);
 

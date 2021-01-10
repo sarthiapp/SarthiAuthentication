@@ -52,7 +52,7 @@ public class SignUpUser extends AppCompatActivity {
                     db.collection("data").document(user.getUid()).set(users).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            Intent intent=new Intent(SignUpUser.this,verifyo_otp.class);
+                            Intent intent=new Intent(SignUpUser.this,NewLogin.class);
                             intent.putExtra("phone",user_phone.getText().toString());
                             startActivity(intent);
 
