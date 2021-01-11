@@ -49,6 +49,7 @@ public class SignUpDriver extends AppCompatActivity {
                 db.collection("data").document(driver.getUid()).set(drivers).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(SignUpDriver.this, "Registration sucessfull.Please Check Your Mail Id", Toast.LENGTH_SHORT).show();
                         Intent intent=new Intent(SignUpDriver.this,NewLogin.class);
                         intent.putExtra("phone",driver_phone.getText().toString());
                         startActivity(intent);

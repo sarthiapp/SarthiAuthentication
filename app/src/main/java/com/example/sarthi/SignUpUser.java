@@ -52,6 +52,7 @@ public class SignUpUser extends AppCompatActivity {
                     db.collection("data").document(user.getUid()).set(users).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
+                            Toast.makeText(SignUpUser.this, "Registration sucessfull.Please Check Your Mail Id", Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(SignUpUser.this,NewLogin.class);
                             intent.putExtra("phone",user_phone.getText().toString());
                             startActivity(intent);

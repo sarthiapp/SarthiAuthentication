@@ -58,35 +58,36 @@ public class NewSignup extends AppCompatActivity {
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (checkValidations()){
+                if (checkValidations()) {
+                    if (matchPassword()) {
 
-                    fAuth.createUserWithEmailAndPassword(personEmailAddress.getText().toString(),personPass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
+                        fAuth.createUserWithEmailAndPassword(personEmailAddress.getText().toString(), personPass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
 
-                            if (task.isSuccessful()) {
+                                if (task.isSuccessful()) {
 
-                                fAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if(task.isSuccessful()) {
-                                            Toast.makeText(NewSignup.this, "Registration successful.Please check your email for verification", Toast.LENGTH_SHORT).show();
-                                            nextActivity();
+                                    fAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Toast.makeText(NewSignup.this, "Registration successful.Please Fill Up the Details", Toast.LENGTH_SHORT).show();
+                                                nextActivity();
+                                            } else {
+                                                Toast.makeText(NewSignup.this, "" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                            }
+
                                         }
-                                        else {
-                                            Toast.makeText(NewSignup.this, ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                                        }
-
-                                    }
-                                });
+                                    });
 
 
-                            } else {
-                                Toast.makeText(NewSignup.this, ""+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(NewSignup.this, "" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+
                             }
-
-                        }
-                    });
+                        });
+                    }
                 }
             }
         });
@@ -176,6 +177,14 @@ public class NewSignup extends AppCompatActivity {
         } else if(TextUtils.isEmpty(personConfPass.getText().toString())){
             Toast.makeText(this, "Create Your Password", Toast.LENGTH_SHORT).show();
             return false;
+        }
+        return true;
+    }
+    private boolean matchPassword(){
+        if(!personPass.getText().toString().equals(personConfPass.getText().toString()))
+        {
+            Toast.makeText(this, "Your Password Is not Match With Confirm Password", Toast.LENGTH_SHORT).show();
+             return false;
         }
         return true;
     }

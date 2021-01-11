@@ -63,12 +63,18 @@ public class NewLogin extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
-                                        // Sign in success, update UI with the signed-in user's information
-                                        FirebaseUser user=firebaseAuth.getCurrentUser();
-                                        loginType(user);
+                                        if(firebaseAuth.getCurrentUser().isEmailVerified()) {
+                                            // Sign in success, update UI with the signed-in user's information
+                                            FirebaseUser user = firebaseAuth.getCurrentUser();
+                                            loginType(user);
+                                        }
+                                        else
+                                        {
+                                            Toast.makeText(NewLogin.this, "Please verify Your Email First", Toast.LENGTH_SHORT).show();
+                                        }
                                     } else {
                                         // If sign in fails, display a message to the user.
-                                        Toast.makeText(NewLogin.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(NewLogin.this, "This Email is Not Register Create A New Account", Toast.LENGTH_SHORT).show();
                                         // ...
                                     }
 
