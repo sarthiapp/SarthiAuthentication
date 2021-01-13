@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         btnUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), NewSignup.class);
+                Intent intent = new Intent(getApplicationContext(), PhoneSignup.class);
                 intent.putExtra("type","user");
                 startActivity(intent);
             }
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         btnDriver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), NewSignup.class);
+                Intent intent = new Intent(getApplicationContext(), PhoneSignup.class);
                 intent.putExtra("type","driver");
                 startActivity(intent);
             }
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         btnAttendant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), NewSignup.class);
+                Intent intent = new Intent(getApplicationContext(), PhoneSignup.class);
                 intent.putExtra("type","attendant");
                 startActivity(intent);
             }
