@@ -44,18 +44,20 @@
         android:layout_height="wrap_content"
         android:hint="Age"
         android:paddingLeft="15dp"
+        android:inputType="number"
         android:paddingTop="20dp"
         android:paddingRight="15dp"
         android:textSize="22sp" />
 
     <EditText
-        android:id="@+id/user_phone"
+        android:id="@+id/user_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Phone number"
+        android:hint="Email"
         android:paddingLeft="15dp"
         android:paddingTop="20dp"
         android:paddingRight="15dp"
+        android:inputType="textEmailAddress"
         android:textSize="22sp" />
 
     <Button

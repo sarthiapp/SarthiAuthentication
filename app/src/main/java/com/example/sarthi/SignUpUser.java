@@ -23,7 +23,7 @@ import java.util.Map;
 
 public class SignUpUser extends AppCompatActivity {
 
-    EditText user_first_name,user_last_name,user_age,user_address,user_phone;
+    EditText user_first_name,user_last_name,user_age,user_address,user_email;
     Button btnSaveUser;
     FirebaseAuth fauth=FirebaseAuth.getInstance();
     FirebaseFirestore db=FirebaseFirestore.getInstance();
@@ -38,7 +38,7 @@ public class SignUpUser extends AppCompatActivity {
         user_age=findViewById(R.id.user_age);
         user_address=findViewById(R.id.user_address);
         user_last_name=findViewById(R.id.user_last_name);
-        user_phone=findViewById(R.id.user_phone);
+        user_email=findViewById(R.id.user_email);
         btnSaveUser=findViewById(R.id.btnSaveUser);
         btnSaveUser.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,14 +47,15 @@ public class SignUpUser extends AppCompatActivity {
                     users.put("name",user_first_name.getText().toString()+" "+user_last_name.getText().toString());
                     users.put("address",user_address.getText().toString());
                     users.put("age",user_age.getText().toString());
-                    users.put("phone",user_phone.getText().toString());
+                    users.put("email",user_email.getText().toString());
                     users.put("type","user");
+                    users.put("phone",user.getPhoneNumber());
                     db.collection("data").document(user.getUid()).set(users).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            Toast.makeText(SignUpUser.this, "Registration sucessfull.Please Check Your Mail Id", Toast.LENGTH_SHORT).show();
-                            Intent intent=new Intent(SignUpUser.this,NewLogin.class);
-                            intent.putExtra("phone",user_phone.getText().toString());
+                            Toast.makeText(SignUpUser.this, "SignUp Successful", Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(SignUpUser.this,User_Home.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
 
                         }
@@ -68,8 +69,8 @@ public class SignUpUser extends AppCompatActivity {
         if(TextUtils.isEmpty(user_first_name.getText().toString())){
             Toast.makeText(this, "Please Enter Your Name", Toast.LENGTH_SHORT).show();
             return false;
-        } else if(TextUtils.isEmpty(user_phone.getText().toString())){
-            Toast.makeText(this, "Please enter a phone Number", Toast.LENGTH_SHORT).show();
+        } else if(TextUtils.isEmpty(user_email.getText().toString())){
+            Toast.makeText(this, "Please enter an email address", Toast.LENGTH_SHORT).show();
             return false;
         } else if(TextUtils.isEmpty(user_address.getText().toString())){
             Toast.makeText(this, "Please enter an address", Toast.LENGTH_SHORT).show();

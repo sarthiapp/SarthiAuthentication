@@ -18,8 +18,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,6 +32,7 @@ public class PhoneVerify extends AppCompatActivity {
     EditText otpNumberOne,getOtpNumberTwo,getOtpNumberThree,getOtpNumberFour,getOtpNumberFive,otpNumberSix;
     ProgressBar progressBar;
     private String verificationId;
+    String type;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,9 +77,7 @@ public class PhoneVerify extends AppCompatActivity {
                                     progressBar.setVisibility(View.GONE);
                                     btnVerify.setVisibility(View.VISIBLE);
                                     if (task.isSuccessful()) {
-                                        Intent intent = new Intent(getApplicationContext(), NewLogin.class);
-                                        //  intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                        startActivity(intent);
+                                        sign_login();
 
 
                                     } else {
@@ -116,6 +119,67 @@ public class PhoneVerify extends AppCompatActivity {
                         }
                 );
 
+            }
+        });
+    }
+    public void sign_login()
+    {
+        FirebaseAuth fauth=FirebaseAuth.getInstance();
+        FirebaseUser fuser=fauth.getCurrentUser();
+        FirebaseFirestore db=FirebaseFirestore.getInstance();
+        DocumentReference documentReference=db.collection("data").document(fuser.getUid());
+        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        type=document.get("type").toString();
+                        if(type.equals("user"))
+                        {
+                            Toast.makeText(PhoneVerify.this, "logged in successfully", Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(PhoneVerify.this,User_Home.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                        }
+                        else if(type.equals("driver"))
+                        {
+                            Toast.makeText(PhoneVerify.this, "logged in successfully", Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(PhoneVerify.this,Driver_Home.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                        }
+                        else if(type.equals("Attendant"))
+                        {
+                            Toast.makeText(PhoneVerify.this, "logged in successfully", Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(PhoneVerify.this,Attendant_Home.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                        }
+
+                    }
+                    else {
+                        type=getIntent().getStringExtra("type");
+                        if(type.equals("user"))
+                        {
+                            Intent intent=new Intent(PhoneVerify.this,SignUpUser.class);
+                            startActivity(intent);
+                        }
+                        if(type.equals("driver"))
+                        {
+                            Intent intent=new Intent(PhoneVerify.this,SignUpDriver.class);
+                            startActivity(intent);
+                        }
+                        if(type.equals("attendant"))
+                        {
+                            Intent intent=new Intent(PhoneVerify.this,SignUpAttendant.class);
+                            startActivity(intent);
+                        }
+                    }
+                }
+                else {
+                    Toast.makeText(PhoneVerify.this, "get failed with "+ task.getException(), Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -207,4 +271,5 @@ public class PhoneVerify extends AppCompatActivity {
             }
         });
     }
+
 }

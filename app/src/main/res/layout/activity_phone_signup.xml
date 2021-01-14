@@ -54,7 +54,6 @@
                 app:layout_constraintHorizontal_bias=".8"
                 app:boxCornerRadiusTopEnd="15dp"
                 app:hintTextColor="@color/teal_700"
-                app:hintTextAppearance="@style/HintText"
                 app:endIconMode="clear_text"
                 app:counterEnabled="true"
                 app:counterMaxLength="10"

@@ -22,6 +22,7 @@ public class PhoneSignup extends AppCompatActivity {
     Button generateOtp;
     EditText etPhoneNumber;
     ProgressBar progressBar;
+    String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,8 @@ public class PhoneSignup extends AppCompatActivity {
         generateOtp=findViewById(R.id.button2);
         progressBar=findViewById(R.id.progressBar);
         etPhoneNumber=findViewById(R.id.Phone_no_ed);
+        Intent intent1=getIntent();
+        type=intent1.getStringExtra("type");
         generateOtp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,6 +72,7 @@ public class PhoneSignup extends AppCompatActivity {
                                 Intent intent=new Intent(PhoneSignup.this,PhoneVerify.class);
                                 intent.putExtra("mobile",etPhoneNumber.getText().toString());
                                 intent.putExtra("verificationId",verificationId);
+                                intent.putExtra("type",type);
                                 startActivity(intent);
                             }
                         }

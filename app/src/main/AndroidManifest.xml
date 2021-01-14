@@ -3,6 +3,9 @@
     package="com.example.sarthi">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:name="androidx.multidex.MultiDexApplication"
@@ -15,11 +18,6 @@
         <activity android:name=".PhoneVerify"></activity>
         <activity android:name=".PhoneSignup" />
         <activity android:name=".NewLogin">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Attendant_Home" />
         <activity android:name=".Driver_Home" />
@@ -27,7 +25,13 @@
         <activity android:name=".SignUpAttendant" />
         <activity android:name=".SignUpDriver" />
         <activity android:name=".SignUpUser" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

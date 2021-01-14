@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:hint="First Name"
         android:paddingLeft="15dp"
-        android:paddingTop="100dp"
+        android:paddingTop="15dp"
         android:paddingRight="15dp"
         android:textSize="22sp" />
 
@@ -31,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Age"
+        android:inputType="number"
         android:paddingLeft="15dp"
         android:paddingTop="20dp"
         android:paddingRight="15dp"
@@ -40,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="15dp"
-        android:paddingTop="20dp"
+        android:paddingTop="10dp"
         android:paddingRight="15dp"
         android:text="Gender"
         android:textSize="22sp" />
@@ -72,14 +73,97 @@
     </RadioGroup>
 
     <EditText
-        android:id="@+id/attendant_phone"
+        android:id="@+id/attendant_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Phone number"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
         android:paddingLeft="15dp"
         android:paddingTop="20dp"
         android:paddingRight="15dp"
         android:textSize="22sp" />
+
+    <EditText
+        android:id="@+id/attendant_education"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Educational Qualification"
+        android:inputType="textMultiLine"
+        android:paddingLeft="15dp"
+        android:paddingTop="20dp"
+        android:paddingRight="15dp"
+        android:textSize="22sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:paddingRight="15dp"
+        android:text="Past Experience"
+        android:textSize="22sp" />
+
+    <RadioGroup
+        android:id="@+id/radioExp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioYes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Yes"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radioNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:text="No"
+            android:textSize="18sp" />
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            android:paddingRight="15dp"
+            android:text="Experience Certificate"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnExp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="3"
+            android:text="Upload" />
+        <ProgressBar
+            android:id="@+id/pb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            />
+
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnSaveAttendant"
@@ -94,5 +178,6 @@
         android:textColor="@color/purple_500"
         android:textSize="18sp"
         android:textStyle="bold" />
+
 
 </LinearLayout>
