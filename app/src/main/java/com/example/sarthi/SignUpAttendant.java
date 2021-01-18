@@ -14,6 +14,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -26,6 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -56,6 +58,7 @@ public class SignUpAttendant extends AppCompatActivity {
     Button btnSaveAttendant,btnExp;
     RadioGroup radioGender,radioExp;
     RadioButton radioButton,radioYes,radioNo;
+    TextView tvExperience;
     int selected;
     StorageReference storageReference;
     StorageTask storageTask;
@@ -84,6 +87,7 @@ public class SignUpAttendant extends AppCompatActivity {
         layout=findViewById(R.id.layout);
         btnExp=findViewById(R.id.btnExp);
         pb=findViewById(R.id.pb);
+        tvExperience=findViewById(R.id.tvExperience);
         storageReference = FirebaseStorage.getInstance().getReference("uploads");
         radioYes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -248,6 +252,8 @@ public class SignUpAttendant extends AppCompatActivity {
                                 public void onSuccess(Uri uri) {
                                     url=uri.toString();
                                     pb.setVisibility(View.GONE);
+                                    Drawable img = tvExperience.getContext().getResources().getDrawable( R.drawable.ic_uploaded );
+                                    tvExperience.setCompoundDrawablesWithIntrinsicBounds(null,null,img,null);
                                     Toast.makeText(SignUpAttendant.this, "Successful", Toast.LENGTH_SHORT).show();
                                 }
                             });

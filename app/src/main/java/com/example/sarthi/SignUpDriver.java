@@ -14,6 +14,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -23,6 +24,7 @@ import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -51,6 +53,7 @@ public class SignUpDriver extends AppCompatActivity {
     StorageReference storageReference;
     StorageTask storageTask;
     EditText driver_first_name,driver_last_name,driver_model,driver_car_number,driver_email,driver_radius;
+    TextView tv;
     ProgressBar pb;
     Button btnSaveDriver,btnId,btnInsurance,btnRC,btnFront,btnBack;
     FirebaseAuth fauth=FirebaseAuth.getInstance();
@@ -110,6 +113,7 @@ public class SignUpDriver extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 type="id";
+                tv=findViewById(R.id.tvId);
                 pb=findViewById(R.id.pbId);
                 dialog();
             }
@@ -118,6 +122,7 @@ public class SignUpDriver extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 type="insurance";
+                tv=findViewById(R.id.tvInsurance);
                 pb=findViewById(R.id.pbInsurance);
                 dialog();
             }
@@ -126,6 +131,7 @@ public class SignUpDriver extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 type="rc";
+                tv=findViewById(R.id.tvRc);
                 pb=findViewById(R.id.pbRC);
                 dialog();
             }
@@ -134,6 +140,7 @@ public class SignUpDriver extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 type="front";
+                tv=findViewById(R.id.tvFront);
                 pb=findViewById(R.id.pbFront);
                 dialog();
             }
@@ -142,6 +149,7 @@ public class SignUpDriver extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 type="back";
+                tv=findViewById(R.id.tvBack);
                 pb=findViewById(R.id.pbBack);
                 dialog();
             }
@@ -271,6 +279,8 @@ public class SignUpDriver extends AppCompatActivity {
                                     else
                                         urlBack=uri.toString();
                                     pb.setVisibility(View.GONE);
+                                    Drawable img = tv.getContext().getResources().getDrawable( R.drawable.ic_uploaded );
+                                    tv.setCompoundDrawablesWithIntrinsicBounds(null,null,img,null);
                                     Toast.makeText(SignUpDriver.this, "Successful", Toast.LENGTH_SHORT).show();
                                 }
                             });
