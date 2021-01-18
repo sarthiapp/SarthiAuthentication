@@ -52,7 +52,7 @@ public class SignUpAttendant extends AppCompatActivity {
     private static final int REQUEST_CODE_GALLERY =2 ;
     private static final int PICK_IMAGE_CAMERA = 1;
     private static final int PICK_IMAGE_GALLERY =2 ;
-    EditText attendant_first_name,attendant_last_name,attendant_email,attendant_age;
+    EditText attendant_first_name,attendant_last_name,attendant_email,attendant_age,attendant_education;
     Button btnSaveAttendant,btnExp;
     RadioGroup radioGender,radioExp;
     RadioButton radioButton,radioYes,radioNo;
@@ -75,6 +75,7 @@ public class SignUpAttendant extends AppCompatActivity {
         attendant_last_name=findViewById(R.id.attendant_last_name);
         attendant_email=findViewById(R.id.attendant_email);
         attendant_age=findViewById(R.id.attendant_age);
+        attendant_education=findViewById(R.id.attendant_education);
         btnSaveAttendant=findViewById(R.id.btnSaveAttendant);
         radioGender=findViewById(R.id.radioGender);
         radioExp=findViewById(R.id.radioExp);
@@ -116,6 +117,7 @@ public class SignUpAttendant extends AppCompatActivity {
                     attendants.put("age",attendant_age.getText().toString());
                     attendants.put("email",attendant_email.getText().toString());
                     attendants.put("gender",radioButton.getText().toString());
+                    attendants.put("education",attendant_education.getText().toString());
                     attendants.put("type","attendant");
                     attendants.put("phone",attendant.getPhoneNumber());
                     attendants.put("experience",isExp);
@@ -286,6 +288,9 @@ public class SignUpAttendant extends AppCompatActivity {
             return false;
         }else if(TextUtils.isEmpty(attendant_age.getText().toString())){
             Toast.makeText(this, "Please enter your age", Toast.LENGTH_SHORT).show();
+            return false;
+        }else if(TextUtils.isEmpty(attendant_education.getText().toString())){
+            Toast.makeText(this, "Please enter your educational qualification", Toast.LENGTH_SHORT).show();
             return false;
         }
         else if(isExp.isEmpty()){

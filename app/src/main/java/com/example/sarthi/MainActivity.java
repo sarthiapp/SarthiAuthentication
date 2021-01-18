@@ -19,13 +19,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
     Button btnUser,btnAttendant,btnDriver;
-    FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
     FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
         user=firebaseAuth.getCurrentUser();
         if(user!=null)
         {
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                         }
-                        else if(type.equals("Attendant"))
+                        else if(type.equals("attendant"))
                         {
                             Toast.makeText(MainActivity.this, "logged in successfully", Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(MainActivity.this,Attendant_Home.class);
@@ -94,12 +94,6 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(intent);
                         }
                     }
-                    else {
-                        Toast.makeText(MainActivity.this, "document does not exist", Toast.LENGTH_SHORT).show();
-                    }
-                }
-                else {
-                    Toast.makeText(MainActivity.this, "get failed with "+ task.getException(), Toast.LENGTH_SHORT).show();
                 }
             }
         });

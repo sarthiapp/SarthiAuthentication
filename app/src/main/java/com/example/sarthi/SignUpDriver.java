@@ -50,7 +50,7 @@ public class SignUpDriver extends AppCompatActivity {
     private static final int PICK_IMAGE_GALLERY = 2;
     StorageReference storageReference;
     StorageTask storageTask;
-    EditText driver_first_name,driver_last_name,driver_model,driver_car_number,driver_email;
+    EditText driver_first_name,driver_last_name,driver_model,driver_car_number,driver_email,driver_radius;
     ProgressBar pb;
     Button btnSaveDriver,btnId,btnInsurance,btnRC,btnFront,btnBack;
     FirebaseAuth fauth=FirebaseAuth.getInstance();
@@ -62,12 +62,14 @@ public class SignUpDriver extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        type="";
         setContentView(R.layout.activity_sign_up_driver);
         driver_first_name=findViewById(R.id.driver_first_name);
         driver_model=findViewById(R.id.driver_model);
         driver_car_number=findViewById(R.id.driver_car_number);
         driver_last_name=findViewById(R.id.driver_last_name);
         driver_email=findViewById(R.id.driver_email);
+        driver_radius=findViewById(R.id.driver_radius);
         btnSaveDriver=findViewById(R.id.btnSaveDriver);
         btnId=findViewById(R.id.btnId);
         btnInsurance=findViewById(R.id.btnInsurance);
@@ -89,6 +91,7 @@ public class SignUpDriver extends AppCompatActivity {
                 drivers.put("urlFront",urlFront);
                 drivers.put("urlBack",urlBack);
                 drivers.put("type","driver");
+                drivers.put("radius",driver_radius.getText().toString());
                 drivers.put("phone",driver.getPhoneNumber());
                 db.collection("data").document(driver.getUid()).set(drivers).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -312,6 +315,9 @@ public class SignUpDriver extends AppCompatActivity {
             return false;
         }else if(TextUtils.isEmpty(driver_model.getText().toString())){
             Toast.makeText(this, "Please enter model of your car", Toast.LENGTH_SHORT).show();
+            return false;
+        }else if(TextUtils.isEmpty(driver_radius.getText().toString())){
+            Toast.makeText(this, "Please enter radius upto which you want to take a ride", Toast.LENGTH_SHORT).show();
             return false;
         }
         else if(TextUtils.isEmpty(urlId)||TextUtils.isEmpty(urlInsurance)||TextUtils.isEmpty(urlRC)

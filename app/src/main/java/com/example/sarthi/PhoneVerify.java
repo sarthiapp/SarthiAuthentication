@@ -149,7 +149,7 @@ public class PhoneVerify extends AppCompatActivity {
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                         }
-                        else if(type.equals("Attendant"))
+                        else if(type.equals("attendant"))
                         {
                             Toast.makeText(PhoneVerify.this, "logged in successfully", Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(PhoneVerify.this,Attendant_Home.class);
