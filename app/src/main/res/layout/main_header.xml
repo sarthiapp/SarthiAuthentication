@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:fontFamily="@font/bungee"
-        android:text="Ayushi"
+        android:text="user"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="italic" />
@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bitter"
-        android:text="vermaayushi2109@gmail.com"
+        android:text="number"
         android:textColor="@color/black"
         android:textSize="20dp" />
 

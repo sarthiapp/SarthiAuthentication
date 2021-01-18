@@ -14,6 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="User"
+            android:background="@drawable/button"
             android:textSize="30sp"
             android:gravity="center_horizontal"
             android:layout_margin="20dp"
@@ -23,31 +24,56 @@
             android:id="@+id/tvNameUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:background="@drawable/button"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/tvAgeUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:background="@drawable/button"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/tvAddressUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:background="@drawable/button"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/tvPhoneUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:background="@drawable/button"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/tvEmailUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:background="@drawable/button"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
     </LinearLayout>
 
     <LinearLayout
@@ -71,36 +97,66 @@
             android:id="@+id/tvNameDriver"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:background="@drawable/button"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/tvModelDriver"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:background="@drawable/button"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/tvNumberDriver"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:background="@drawable/button"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/tvEmailDriver"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:background="@drawable/button"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/tvPhoneDriver"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:background="@drawable/button"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
         <TextView
             android:id="@+id/tvRadiusDriver"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:background="@drawable/button"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout_attendant"
@@ -123,41 +179,76 @@
             android:id="@+id/tvNameAttendant"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:background="@drawable/button"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/tvGenderAttendant"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:background="@drawable/button"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
         <TextView
             android:id="@+id/tvAgeAttendant"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TetView"/>
+            android:text="TetView"
+            android:background="@drawable/button"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/tvEducationAttendant"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:background="@drawable/button"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/tvEmailAttendant"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:background="@drawable/button"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/tvPhoneAttendant"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:background="@drawable/button"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
         <TextView
             android:id="@+id/tvPastAttendant"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TetView"/>
+            android:text="TetView"
+            android:background="@drawable/button"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
     </LinearLayout>
 
 </LinearLayout>

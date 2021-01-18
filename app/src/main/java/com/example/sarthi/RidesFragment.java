@@ -41,11 +41,11 @@ public class RidesFragment extends Fragment{
 
         return view;
     }
-    private ArrayList<Model> getMyList() {
+   private ArrayList<Model> getMyList() {
         ArrayList<Model> models = new ArrayList<>();
 
         Model m1 = new Model();
-        Model m2 = new Model();
+       /* Model m2 = new Model();
         Model m3 = new Model();
         Model m4 = new Model();
         Model m5 = new Model();
@@ -54,7 +54,7 @@ public class RidesFragment extends Fragment{
         Model m8 = new Model();
         Model m9 = new Model();
         Model m10 = new Model();
-
+*/
         m1.setDay_time("Sun, Dec 01, 01:30 PM");
         m1.setCarNumber("Mini.CRN 3856435623");
         m1.setCost("Rs.175");
@@ -62,7 +62,7 @@ public class RidesFragment extends Fragment{
         m1.setImg(R.drawable.ic_taxi);
         models.add(m1);
 
-        m2.setDay_time("Wed, Nov 11, 05:30 PM");
+  /*      m2.setDay_time("Wed, Nov 11, 05:30 PM");
         m2.setCarNumber("micro.CRN 8765398765");
         m2.setCost("Rs.250");
         m2.setLocation("Shipra Mall,Vaibhav Khand Indirapuram..");
@@ -124,7 +124,7 @@ public class RidesFragment extends Fragment{
         m10.setLocation("Aravali Apartments,Block D,..");
         m10.setImg(R.drawable.ic_taxi);
         models.add(m10);
-
+        */
         return models;
     }
 

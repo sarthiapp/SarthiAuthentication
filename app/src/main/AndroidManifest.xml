@@ -3,9 +3,9 @@
     package="com.example.sarthi">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name="androidx.multidex.MultiDexApplication"
@@ -15,17 +15,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sarthi">
-        <activity android:name=".PhoneVerify"></activity>
-        <activity android:name=".PhoneSignup" />
-        <activity android:name=".NewLogin">
-        </activity>
+        <activity
+            android:name=".PhoneVerify"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PhoneSignup"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".NewLogin"></activity>
         <activity android:name=".Attendant_Home" />
         <activity android:name=".Driver_Home" />
         <activity android:name=".User_Home" />
-        <activity android:name=".SignUpAttendant" />
-        <activity android:name=".SignUpDriver" />
-        <activity android:name=".SignUpUser" />
-        <activity android:name=".MainActivity" >
+        <activity
+            android:name=".SignUpAttendant"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SignUpDriver"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SignUpUser"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
