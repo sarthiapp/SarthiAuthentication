@@ -13,30 +13,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="First Name"
+        android:drawableStart="@drawable/firstname"
+        android:drawablePadding="10dp"
         android:paddingLeft="15dp"
         android:paddingTop="15dp"
         android:paddingRight="15dp"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        android:drawableLeft="@drawable/firstname" />
 
     <EditText
         android:id="@+id/attendant_last_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Last Name"
+        android:drawableStart="@drawable/firstname"
+        android:drawablePadding="10dp"
         android:paddingLeft="15dp"
         android:paddingTop="20dp"
         android:paddingRight="15dp"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        android:drawableLeft="@drawable/firstname" />
     <EditText
         android:id="@+id/attendant_age"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Age"
+        android:drawableStart="@drawable/age"
+        android:drawablePadding="10dp"
         android:inputType="number"
         android:paddingLeft="15dp"
         android:paddingTop="20dp"
         android:paddingRight="15dp"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        android:drawableLeft="@drawable/firstname" />
 
     <TextView
         android:layout_width="match_parent"
@@ -80,20 +89,26 @@
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:paddingLeft="15dp"
+        android:drawableStart="@drawable/email"
+        android:drawablePadding="10dp"
         android:paddingTop="20dp"
         android:paddingRight="15dp"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        android:drawableLeft="@drawable/email" />
 
     <EditText
         android:id="@+id/attendant_education"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Educational Qualification"
+        android:drawableStart="@drawable/educational_qualifications"
+        android:drawablePadding="10dp"
         android:inputType="textMultiLine"
         android:paddingLeft="15dp"
         android:paddingTop="20dp"
         android:paddingRight="15dp"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        android:drawableLeft="@drawable/educational_qualifications" />
 
     <TextView
         android:layout_width="match_parent"
@@ -176,7 +191,7 @@
         android:layout_marginRight="20dp"
         android:backgroundTint="@color/black"
         android:text="Save"
-        android:textColor="@color/purple_500"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold" />
 

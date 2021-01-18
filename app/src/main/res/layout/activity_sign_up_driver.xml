@@ -16,51 +16,66 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="First Name"
+            android:drawableStart="@drawable/firstname"
+            android:drawablePadding="10dp"
             android:paddingLeft="15dp"
             android:paddingTop="15dp"
             android:paddingRight="15dp"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:drawableLeft="@drawable/firstname" />
 
         <EditText
             android:id="@+id/driver_last_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Last Name"
+            android:drawableStart="@drawable/firstname"
+            android:drawablePadding="10dp"
             android:paddingLeft="15dp"
             android:paddingTop="20dp"
             android:paddingRight="15dp"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:drawableLeft="@drawable/firstname" />
 
         <EditText
             android:id="@+id/driver_model"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Car Model Name"
+            android:drawableStart="@drawable/car_model_no"
+            android:drawablePadding="10dp"
             android:paddingLeft="15dp"
             android:paddingTop="20dp"
             android:paddingRight="15dp"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:drawableLeft="@drawable/car_model_no" />
 
         <EditText
             android:id="@+id/driver_car_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Car Number"
+            android:drawableStart="@drawable/car_number"
+            android:drawablePadding="10dp"
             android:paddingLeft="15dp"
             android:paddingTop="20dp"
             android:paddingRight="15dp"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:drawableLeft="@drawable/car_number" />
 
         <EditText
             android:id="@+id/driver_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
+            android:drawableStart="@drawable/email"
+            android:drawablePadding="10dp"
             android:inputType="textEmailAddress"
             android:paddingLeft="15dp"
             android:paddingTop="20dp"
             android:paddingRight="15dp"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:drawableLeft="@drawable/firstname" />
         <EditText
             android:id="@+id/driver_radius"
             android:layout_width="match_parent"
@@ -94,6 +109,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_weight="3"
+                android:background="@drawable/buttons"
                 android:text="Upload" />
 
             <ProgressBar
@@ -128,6 +144,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_weight="3"
+                android:background="@drawable/buttons"
                 android:text="Upload" />
             <ProgressBar
                 android:id="@+id/pbInsurance"
@@ -162,6 +179,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_weight="3"
+                android:background="@drawable/buttons"
                 android:text="Upload" />
             <ProgressBar
                 android:id="@+id/pbRC"
@@ -205,6 +223,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_weight="3"
+                android:background="@drawable/buttons"
                 android:text="Upload" />
             <ProgressBar
                 android:id="@+id/pbFront"
@@ -238,6 +257,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
+                android:background="@drawable/buttons"
                 android:layout_weight="3"
                 android:text="Upload" />
             <ProgressBar
