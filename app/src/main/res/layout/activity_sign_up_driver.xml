@@ -76,6 +76,7 @@
             android:paddingRight="15dp"
             android:textSize="22sp"
             android:drawableLeft="@drawable/firstname" />
+
         <EditText
             android:id="@+id/driver_radius"
             android:layout_width="match_parent"

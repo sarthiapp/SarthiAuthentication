@@ -216,7 +216,8 @@ public class PhoneVerify extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-
+                if (editable.toString().trim().isEmpty())
+                    otpNumberOne.requestFocus();
             }
         });
         getOtpNumberThree.addTextChangedListener(new TextWatcher() {
@@ -233,6 +234,8 @@ public class PhoneVerify extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
+                if (editable.toString().trim().isEmpty())
+                    getOtpNumberTwo.requestFocus();
 
             }
         });
@@ -250,6 +253,8 @@ public class PhoneVerify extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
+                if (editable.toString().trim().isEmpty())
+                    getOtpNumberThree.requestFocus();
 
             }
         });
@@ -267,6 +272,26 @@ public class PhoneVerify extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
+                if (editable.toString().trim().isEmpty())
+                    getOtpNumberFour.requestFocus();
+
+            }
+        });
+        otpNumberSix.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.toString().trim().isEmpty())
+                    getOtpNumberFive.requestFocus();
 
             }
         });
